@@ -6,7 +6,7 @@ export class CustomVideo extends HTMLElement {
 
     constructor() {
         super();
-        const shadow = this.attachShadow({mode: 'open'});
+        const shadow = this.attachShadow({mode: 'closed'});
         console.log('CustomVideo.elements', CustomVideo.elements);
         const id = CustomVideo.elements + 1;
         this.getVideo();
@@ -19,7 +19,7 @@ export class CustomVideo extends HTMLElement {
         // this.video.setAttribute('controls', false);
         this.video.setAttribute('muted', muted);
         this.video.setAttribute('autoplay', true);
-        this.video.setAttribute('height', height);
+        // this.video.setAttribute('height', height);
         this.video.setAttribute('width', width);
         this.video.setAttribute('volume', 1);
     }
@@ -83,11 +83,24 @@ export class CustomVideo extends HTMLElement {
         const style = document.createElement('style');
         style.innerHTML = `
             :host {
-                --black: black;
-                --green: green;
+                --title-color: green;
+                --ctrl-btn-bg: gray;
+                --light-color: white;
+                --ctrl-btn-radius: 5px;
+                --ctrl-btn-margin: 0 10px 0 0;
+                --ctrl-btn-height: 25px;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
             }
             .video-container h1 {
-                color: var(--green, 'gray');
+                color: var(--title-color, 'gray');
+            }
+            .video-controls button {
+                background: var(--ctrl-btn-bg, 'gray');
+                height: var(--ctrl-btn-height, '30px');
+                margin-right: var(--ctrl-btn-margin, '10px');
+                border-radius: var(--ctrl-btn-radius, '5px');
+                border: 0px;
+                color: var(--light-color, white);
             }
         `
         return style;

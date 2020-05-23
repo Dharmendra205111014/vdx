@@ -5,15 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="./dist/component.min.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.2.45/css/materialdesignicons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <style>
         * {
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
         }
+
+        body {
+            background: #948d8d6b;
+        }
+
+        .test {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 100px;
+            width: 100px;
+            z-index: 999;
+        }
+
+        .header {
+           background-color: black;
+           width: 100%;
+           padding: 10px; 
+        }
+
+        .header h1 {
+            font-size: 24px;
+            color: white;
+        }
+
+        .center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
     </style>
 </head>
 <body>
-    <custom-video title="Sunset View" src-url="./videos/sunset.mp4" type="mini"></custom-video>
-    <hr>
-    <custom-video title="Bird sound" src-url="./videos/bird.mp4"></custom-video>
+    <div class="header">
+        <h1>VDX.tv</h1>
+    </div>
+    <div class="center">
+        <custom-video title="Sunset View" src-url="./videos/sunset.mp4" type="mini"></custom-video>
+        <hr/>
+        <custom-video title="Bird sound" src-url="./videos/bird.mp4" type="mini"></custom-video>
+    </div>
 </body>
 </html>

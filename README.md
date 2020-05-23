@@ -15,6 +15,7 @@ Create a custom video player, where some of the controls are with video player o
 - `Play` and `Full screen` control in each video component responsible for its own instance
 - `Mute` control will mute all instance of vdx-player
 - Test [Here](https://dharmendra205111014.github.io/vdx/demo)
+- Tested on chrome
 
 
 ## How to run locally

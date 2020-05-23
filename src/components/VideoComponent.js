@@ -83,21 +83,23 @@ export class CustomVideo extends HTMLElement {
         const style = document.createElement('style');
         style.innerHTML = `
             :host {
-                --title-color: green;
-                --ctrl-btn-bg: gray;
+                --title-color: #110f12;
+                --ctrl-btn-bg: #161a1c;
                 --light-color: white;
-                --ctrl-btn-radius: 5px;
+                --ctrl-btn-radius: 3px;
                 --ctrl-btn-margin: 0 10px 0 0;
                 --ctrl-btn-height: 25px;
                 font-family: Verdana, Geneva, Tahoma, sans-serif;
             }
             .video-container h1 {
                 color: var(--title-color, 'gray');
+                margin: 5px 0;
+                font-size: 24px;
             }
             .video-controls button {
                 background: var(--ctrl-btn-bg, 'gray');
                 height: var(--ctrl-btn-height, '30px');
-                margin-right: var(--ctrl-btn-margin, '10px');
+                margin: var(--ctrl-btn-margin, '10px');
                 border-radius: var(--ctrl-btn-radius, '5px');
                 border: 0px;
                 color: var(--light-color, white);
@@ -124,7 +126,7 @@ export class CustomVideo extends HTMLElement {
         if(type === 'mini')
             this.getVideoElement({src: srcUrl, muted, autoPlay, height: 200, width: 200})
         else
-            this.getVideoElement({src: srcUrl, muted, autoPlay, height: 300, width: 300})
+            this.getVideoElement({src: srcUrl, muted, autoPlay, height: 400, width: 400})
         container.appendChild(this.video);
 
         // Add custom controls

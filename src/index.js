@@ -1,5 +1,4 @@
-import { CustomVideo } from './components/VideoComponent';
+import { CustomVideo } from './components/CustomVideo';
 
-CustomVideo.elements = 0;
-
-customElements.define('custom-video', CustomVideo);
+// Define custom element
+customElements.define('vdx-player', CustomVideo);

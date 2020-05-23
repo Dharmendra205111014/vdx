@@ -1,0 +1,16 @@
+{
+  "name": "vdx.tv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "start": "npm run build && serve demo"
+  },
+  "author": "dharmendra patel <dharmendra.patel26@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "rollup": "^2.10.7",
+    "serve": "^11.3.1"
+  }
+}

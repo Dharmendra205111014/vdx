@@ -6,7 +6,7 @@ export class CustomVideo extends HTMLElement {
 
     constructor() {
         super();
-        const shadow = this.attachShadow({mode: 'closed'});
+        const shadow = this.attachShadow({mode: 'open'});
         console.log('CustomVideo.elements', CustomVideo.elements);
         const id = CustomVideo.elements + 1;
         this.getVideo();

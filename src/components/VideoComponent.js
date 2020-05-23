@@ -141,6 +141,7 @@ export class CustomVideo extends HTMLElement {
         switch(name) {
             case 'muted':
             case 'type':
+                this.shadowRoot.innerHTML = "";
                 this.getVideo();
                 break;
             case 'title':

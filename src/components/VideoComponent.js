@@ -138,6 +138,19 @@ export class CustomVideo extends HTMLElement {
     }
 
     attributeChangedCallback(name, oldVal, newVal) {
-        if(name === 'muted') this.getVideo();
+        switch(name) {
+            case 'muted':
+            case 'type':
+                this.getVideo();
+                break;
+            case 'title':
+                this.videoTitle.innerHTML = newVal;
+                break;
+            case 'autoplay':
+                this.video.autoplay = newVal;
+                break;
+            default:
+                break;
+        }
     }
 }

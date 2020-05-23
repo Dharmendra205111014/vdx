@@ -1,4 +1,3 @@
-// import { uglify } from 'rollup-plugin-uglify';
 import { getBabelOutputPlugin } from '@rollup/plugin-babel';
 import cleanup from 'rollup-plugin-cleanup';
 import { terser } from "rollup-plugin-terser";
@@ -15,7 +14,5 @@ export default {
             presets: ['@babel/preset-env']
         }),
         terser()
-        // babel({}),
-        // uglify()
     ]
 }

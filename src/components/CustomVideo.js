@@ -15,10 +15,12 @@ export class CustomVideo extends HTMLElement {
     constructor() {
         super();
         const shadow = this.attachShadow({mode: 'open'});
+        this.id = 'vdx_' + new Date().getTime();
         this.getVideo();
 
         // This is where Mute is share across the instance through `custom_video_volume_changed` event
         pubsub.subscribe('custom_video_volume_changed', this.volumeUpdate, this);
+        pubsub.subscribe('custom_video_pause_changed', this.pauseChange, this);
 
         // Handle document full screen state change
         // @TODO: Could be at better place, keeping in constructor for now
@@ -97,6 +99,12 @@ export class CustomVideo extends HTMLElement {
         }
     }
 
+    pauseChange(id) {
+        if(this.id !== id) {
+            this.pause();
+        }
+    }
+
     /**
      * Play state change callback on button click
      * NOTE: Currently button template is replaced directly, could have been managed better
@@ -104,13 +112,22 @@ export class CustomVideo extends HTMLElement {
      */
     playChanged(e) {
         if (this.video.paused) {
-            this.video.play();
-            this.controls.play.innerHTML = `<span class="mdi mdi-pause"></span>`
+            this.play();
         }
         else {
-            this.video.pause();
-            this.controls.play.innerHTML = `<span class="mdi mdi-play"></span>`
+            this.pause();
         }
+    }
+
+    play() {
+        this.video.play();
+        pubsub.publish('custom_video_volume_changed', this, this.id);
+        this.controls.play.innerHTML = `<span class="mdi mdi-pause"></span>`
+    }
+
+    pause() {
+        this.video.pause();
+        this.controls.play.innerHTML = `<span class="mdi mdi-play"></span>`
     }
 
     /**

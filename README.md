@@ -1,4 +1,5 @@
 # VDX.tv
+[![Build Status](https://travis-ci.org/Dharmendra205111014/vdx.svg?branch=master)](https://travis-ci.org/Dharmendra205111014/vdx)
 
 ## Problem statement
 Create a custom video player, where some of the controls are with video player object and some of them can be shared across all instance of player on same screen
